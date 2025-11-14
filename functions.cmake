@@ -10,6 +10,5 @@ function(serve_target target src_dir include_dir type)
 endfunction()
 
 function(get_git_file repo branch file target secret)
-    execute_process(COMMAND curl "https://raw.githubusercontent.com/${repo}/${branch}/${file}" -o "${target}" --create-dirs)
+    execute_process(COMMAND curl "https://raw.githubusercontent.com/${repo}/${branch}/${file}" -s -o "${target}" --create-dirs)
 endfunction()
-get_git_file("nekit508/misc-cxx-stuff" "master" ".gitignore" "${PROJECT_SOURCE_DIR}/file" "")
